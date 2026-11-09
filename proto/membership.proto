@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package membership;
+
+option go_package = "github.com/devmehtaa/distributed-computing-runtime/gen/membership/v1;membershipv1";
+
+service MembershipService {
+    rpc Register(WorkerInfo) returns (RegisterResponse);
+
+    rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+
+    rpc Deregister(DeregisterRequest) returns (DeregisterResponse);
+}
+
+message WorkerInfo {
+    string hostname = 1;
+    string ip_address = 2;
+    int32 cpu_cores = 3;
+    int64 memory_mb = 4;
+}
+
+message RegisterResponse {
+    string worker_id = 1;
+    bool accepted = 2;
+}
+
+message HeartbeatRequest {
+    string worker_id = 1;
+}
+
+message HeartbeatResponse {
+    bool acknowledged = 1;
+}
+
+message DeregisterRequest {
+    string worker_id = 1;
+}
+
+message DeregisterResponse {
+    bool successful = 1;
+}

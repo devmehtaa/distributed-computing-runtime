@@ -1,0 +1,26 @@
+distributed-compute/
+│
+├── cmd/
+│   ├── coordinator/
+│   │   └── main.go
+│   │
+│   └── worker/
+│       └── main.go
+│
+├── internal/
+│   ├── coordinator/
+│   │   └── server.go
+│   │
+│   ├── membership/
+│   │   ├── registry.go
+│   │   └── worker.go
+│   │
+│   └── worker/
+│       └── client.go
+│
+├── proto/
+│   └── membership.proto
+│
+├── README.md
+└── go.mod
+
